@@ -8,18 +8,18 @@ named_service:
     - watch:
       - file: named_config
 
-named_config:
-  file.managed:
-    - name: {{ server.named_conf }}
-    - source: salt://freeipa/files/named.conf
-    - template: jinja
-    - owner: root
-    - group: named
-    - mode: 640
-    - require:
-      - cmd: freeipa_server_install
-    - watch_in:
-      - service: named_service
+# named_config:
+#   file.managed:
+#     - name: {{ server.named_conf }}
+#     - source: salt://freeipa/files/named.conf
+#     - template: jinja
+#     - owner: root
+#     - group: named
+#     - mode: 640
+#     - require:
+#       - cmd: freeipa_server_install
+#     - watch_in:
+#       - service: named_service
 
 freeipa_zones_dir:
   file.directory:
