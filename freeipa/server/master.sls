@@ -19,7 +19,7 @@ freeipa_server_install:
         {%- if server.get('dns', {}).get('enabled', True) %} --setup-dns{%- endif %}
         {%- if server.get('dns', {}).get('forwarders', []) %}{%- for forwarder in server.dns.forwarders %} --forwarder={{ forwarder }}{%- endfor %}{%- else %} --no-forwarders{%- endif %}
         {%- if server.get('mkhomedir', True) %} --mkhomedir{%- endif %}
-        {%- if server.get('ip-address', []) %}{%- for address in server.ip_address %} --ip-address={{ address }}{%- endfor %}{%- endif %}
+        {%- if server.get('ip-address', []) %}{%- for address in server.ip-address %} --ip-address={{ address }}{%- endfor %}{%- endif %}
         {%- if server.get('adtrust', False) %} --setup-adtrust{%- endif %}
         {%- if server.get('kra', False) %} --setup-kra{%- endif %}
         --auto-reverse
